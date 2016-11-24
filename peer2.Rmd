@@ -1,0 +1,35 @@
+---
+title: "Top Wonders of the World"
+author: "João Pedro Schmitt"
+date: "24 de novembro de 2016"
+output: html_document
+---
+
+## November 24, 2016
+
+## 7 Photos of beautiful places from all over the world
+
+The link for the [source code](https://github.com/schmittjoaopedro/data-products-peer2)
+
+```{r fig.width=9.5,fig.height=9,fig.align='center', echo=FALSE}
+library(leaflet)
+
+positions <- hopkinsLatLong <- data.frame(
+  lat = c(13.441240, 37.080487, 13.428738, 13.325419, 48.759709, -45.347953, 36.091773),
+  lng = c(103.858252, -8.669313, 103.890146, 103.846245, -113.787044, 170.826642, -115.175783))
+
+imageLinks <- c(
+  "<p><b>Angkor Thom</b></p><img src='http://www.youramazingplaces.com/wp-content/uploads/2014/03/Angkor-Thom-620x465.jpg' width=310 height=232 />",
+  "<p><b>Ponta Da Piedade</b></p><img src='http://www.youramazingplaces.com/wp-content/uploads/2014/03/Ponta-Da-Piedade-2-Portugal-620x465.jpg' width=310 height=232 />",
+  "<p><b>Tha Prohm- Angkor, Siem Reap</b></p><img src='http://www.youramazingplaces.com/wp-content/uploads/2014/03/Tha-Prohm-Angkor-Siem-Reap-620x465.jpg' width=310 height=232 />",
+  "<p><b>The Bamboo Forest</b></p><img src='http://www.youramazingplaces.com/wp-content/uploads/2014/03/The-Bamboo-Forest-620x413.jpg' width=310 height=232 />",
+  "<p><b>The Edge of Glacier National Park</b></p><img src='http://www.youramazingplaces.com/wp-content/uploads/2014/03/The-Edge-of-Glacier-National-Park-620x408.jpg' width=310 height=232 />",
+  "<p><b>The Mysterious Moraki Boulders</b></p><img src='http://www.youramazingplaces.com/wp-content/uploads/2014/03/The-Mysterious-Moraki-Boulders-620x405.jpg' width=310 height=232 />",
+  "<p><b>The Secret Underwater Passage, Mandalay Bay in Las Vegas</b></p><img src='http://www.youramazingplaces.com/wp-content/uploads/2014/03/The-Secret-Underwater-Passage-620x413.jpg' width=310 height=232 />"
+)
+
+positions %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup = imageLinks)
+```
